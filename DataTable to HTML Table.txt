@@ -1,0 +1,22 @@
+    private static string HtmlTableMaker(DataTable Source)
+    {
+        string Table2 = "<table border=\"0\">";
+        Table2 += "<tr><font size=3>";
+        foreach (DataColumn Col in Source.Columns)
+        {
+            string ColName = Col.ColumnName.ToString();
+            Table2 += "<td>" + "<b>" + Col.ColumnName.ToString() + "</b> </td>"; 
+
+        }
+        foreach (DataRow Row in Source.Rows)
+        {
+            Table2 += "<tr><font size=2>";
+            foreach (var cell in Row.ItemArray)
+            {
+                Table2 += "<td>" + cell.ToString() + " </td>";
+            }
+            Table2 += "</tr>";
+        }
+        Table2 += "</table></br><br>";
+        return Table2;
+    } 
